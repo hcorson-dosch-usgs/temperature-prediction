@@ -7,6 +7,29 @@
       <p> so much to say here!!</p>
 
       <figure ref="figure" class="sticky">
+        <div id = "flubber-test">
+          <svg
+            id="transform-svg-test"
+            xmlns="http://www.w3.org/2000/svg"
+            width="auto"
+            height="100%"
+          >
+            <g transform="translate(5 5) scale(9 9)">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              <path d="M23 5.5V20c0 2.2-1.8 4-4 4h-7.3c-1.08 0-2.1-.43-2.85-1.19L1 14.83s1.26-1.23 1.3-1.25c.22-.19.49-.29.79-.29.22 0 .42.06.6.16.04.01 4.31 2.46 4.31 2.46V4c0-.83.67-1.5 1.5-1.5S11 3.17 11 4v7h1V1.5c0-.83.67-1.5 1.5-1.5S15 .67 15 1.5V11h1V2.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5V11h1V5.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5z" />
+              <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+              <path d="M7 2v11h3v9l7-12h-4l4-8z" />
+              <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+              <path
+                d="M6.54,0C6.24,0,6.05,0.18,5.92,0.38L0.08,9.92C0,10,0,10.15,0,10.31C0,10.85,0.38,11,0.69,11h11.62
+        c0.38,0,0.69-0.15,0.69-0.69c0-0.15,0-0.23-0.08-0.38L7.15,0.38C7.03,0.18,6.79,0,6.54,0z"
+              />
+              <path d= "M1 5 L11 5 L11 10 L1 10z" />
+              <path d= "M5 5 L16 10 L5 15 L1 10z" />
+            </g>
+          </svg>
+        </div>
         <div id="bees-container">
           <div id="progress-container">
           <p class="progress"/>
@@ -125,9 +148,11 @@
 <script>
     import * as d3Base from "d3";
     import * as scrollama from 'scrollama';
+    import * as flubber from "flubber";
 
   export default {
     name: 'Modeling',
+    name: 'TransformSVG',
     components: {
     },
     data() {
@@ -152,7 +177,8 @@
             activeButton: null,
             seg_id_nat: null,
             year: null,
-            month: null
+            month: null,
+            pathStrings: null,
             
           }
         },
@@ -180,6 +206,9 @@
           this.d3 = Object.assign(d3Base); // this loads d3 plugins with webpack
           this.paddedRadius = 7;
           
+          // define flubber variables - set each d attribute of each path as an element in an array of path strings
+          this.pathStrings = Array.from(document.querySelectorAll("#transform-svg-test path")).map(d => d.getAttribute("d"));
+
           this.getData(); //read in data and then draw chart
 
         },
@@ -193,6 +222,8 @@
 
           },
           callback(data) {
+            this.setFlubber();
+
             let rmse_monthly = data[0];
             
             // calculate value arrays for color coding ONCE here and then we're good forever
@@ -214,6 +245,39 @@
             this.marginX = bounds.width * 0.1
             this.marginY = bounds.height * 0.1
             this.scroller.resize()
+          },
+          // set up flubber svg
+          setFlubber() {
+            const self = this;
+
+            // display only the first path element
+            self.d3.select("#transform-svg-test")
+                .selectAll("path")
+                .filter(function(d, i) {
+                    return i; })
+                .remove();
+          },
+          // animate flubber svg
+          animateFlubber() {
+            const self = this;
+
+            // remove the first pathstring from the array and set it as the starting path
+            let start = self.pathStrings.shift(),
+                // set the first element of the modified array as the ending point
+                end = self.pathStrings[0];
+
+            // place the path string you removed at the end of the array                
+            self.pathStrings.push(start);
+
+            // transition between the pre-defined starting path and ending path
+            self.d3.select("#transform-svg-test path")
+              .style("display", "block")
+              .datum({ start, end })
+              .transition()
+              .duration(1200)
+              .attrTween("d", function(d){
+                  return flubber.interpolate(d.start, d.end, { maxSegmentLength: 0.1 })
+              })
           },
           // draw beeswarm/scatterplot
           setChart(data, model) {
@@ -378,6 +442,8 @@
           self.d3.select("#bees-container p")
           .text(response.index + 1);
 
+          this.animateFlubber();
+
           this.updateChart(response.index);
 
         },
@@ -530,9 +596,18 @@ article {
 #bees-container {
   position: absolute;
   width: 90%;
-  height: 80%;
+  height: 60%;
   left: 5%;
-  top: 10%;
+  top: 40%;
 
+}
+#flubber-test {
+  stroke: #ffffff;
+  stroke-width: 0.5px;
+  position: absolute;
+  width: 90%;
+  height: 40%;
+  left: 5%;
+  top: 0%;
 }
 </style>
