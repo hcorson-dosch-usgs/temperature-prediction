@@ -14,19 +14,36 @@
             width="auto"
             height="100%"
           >
-            <g transform="translate(5 5) scale(9 9)">
-              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-              <path d="M23 5.5V20c0 2.2-1.8 4-4 4h-7.3c-1.08 0-2.1-.43-2.85-1.19L1 14.83s1.26-1.23 1.3-1.25c.22-.19.49-.29.79-.29.22 0 .42.06.6.16.04.01 4.31 2.46 4.31 2.46V4c0-.83.67-1.5 1.5-1.5S11 3.17 11 4v7h1V1.5c0-.83.67-1.5 1.5-1.5S15 .67 15 1.5V11h1V2.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5V11h1V5.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5z" />
-              <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
-              <path d="M7 2v11h3v9l7-12h-4l4-8z" />
-              <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
-              <path
-                d="M6.54,0C6.24,0,6.05,0.18,5.92,0.38L0.08,9.92C0,10,0,10.15,0,10.31C0,10.85,0.38,11,0.69,11h11.62
-        c0.38,0,0.69-0.15,0.69-0.69c0-0.15,0-0.23-0.08-0.38L7.15,0.38C7.03,0.18,6.79,0,6.54,0z"
-              />
-              <path d= "M1 5 L11 5 L11 10 L1 10z" />
-              <path d= "M5 5 L16 10 L5 15 L1 10z" />
+            <g id="Path1">
+              <path id="river" class="step_1" d="M4.4,166.9.5,166c.8-3,18.3-72.2,59.7-83.5,20.4-5.6,43,4.1,67,28.7l-2.9,2.8c-22.9-23.5-44.1-32.8-63-27.7C22.1,97,4.6,166.2,4.4,166.9Z"/>
+              <path id="river" class="step_2" d="M147.9,122.4c-9-18.1-21.7-20.5-35.2-23-9.1-1.7-18.5-3.5-26.4-10.3-6.1-5.3-7.3-13.8-8.9-25.5C76,53.5,74.3,41,69.1,25.3L72.9,24c5.3,16.1,7.1,28.8,8.5,39s2.5,18.8,7.5,23.1c7.1,6.1,15.6,7.7,24.5,9.4,13.9,2.6,28.2,5.3,38.1,25.1Z"/>
+              <path id="river" class="step_3" d="M21,219.7l-2.9-2.8C73,161.1,87.8,125.1,99.7,96.2s22.1-53.8,67.2-86.8l2.3,3.2C125,44.9,115.5,68.2,103.4,97.7S76.4,163.3,21,219.7Z"/>
+              <!-- path id="river" class="step_1" d="M2.5,166.5s35.4-144,123.2-53.9"/ -->
+              <!-- path id="river" class="step_2" d="M71,24.6c11.4,34.5,6.3,54.1,16.6,63,18.9,16.2,46.3,2.3,62.1,33.9"/ -->
+              <!-- path id="river" class="step_3" d="M168,11C78.3,76.5,129.4,106.6,19.6,218.3"/ -->
+            </g>
+            <g id="Path2">
+              <path id="river" class="step_1" d="M190.1,153.1c-19.1,0-41.2-13.2-65.8-39.2l2.9-2.7c26.6,28.1,49.8,40.7,69.1,37.3,24.5-4.3,37-33.1,43.8-48.6a74.9,74.9,0,0,1,3.6-7.7l3.4,2c-.8,1.5-2,4.1-3.4,7.3-7,16.2-20.1,46.3-46.7,51A40.2,40.2,0,0,1,190.1,153.1Z"/>
+              <path id="river" class="step_2" d="M172.5,242.6l-4-.3c.2-2.5.5-5.3.9-8.3,2.2-19.2,5.5-48.1-6.5-60.8-24.3-25.8-24.3-28.6-15.8-50.4a307.2,307.2,0,0,0,12.4-38.6c2.2-9-3.4-18.1-8.8-26.9s-11.6-19-8.4-28.8,12-15.9,28.4-22.8l1.6,3.7c-15.3,6.4-23.8,13-26.2,20.3s2.6,16.6,8.1,25.5,11.8,19.4,9.2,30a300.4,300.4,0,0,1-12.6,39c-7.8,20.3-8.3,21.5,15,46.2,13.3,14.1,9.8,44.1,7.6,64C173,237.4,172.7,240.3,172.5,242.6Z"/>
+              <path id="river" class="step_3" d="M66.9,240.3l-3-2.7c41.6-47.2,53.9-84.2,64.8-116.9,13.8-41.6,24.7-74.4,92.8-104.8l1.7,3.7C156.6,49.2,146.5,79.7,132.5,122,122,153.4,109.1,192.4,66.9,240.3Z"/>
+              <!-- path id="river" class="step_1" d="M125.7,112.6c85.8,90.7,111.6-5.5,119.7-19.4"/ -->
+              <!-- path id="river" class="step_2" d="M171.5,7.5c-60.6,25.4-3.2,49.8-10.1,77.2-15.4,61.9-31.3,50.8,3,87.1,14.6,15.5,7.7,53.2,6.1,70.7"/ -->
+              <!-- path id="river" class="step_3" d="M222.3,17.8c-119.1,53-60.6,111.8-156.9,221.1"/ -->
+            </g>
+            <g id="Path3">
+              <path id="other" class="step_1" d="M78.6,84.4a5.5,5.5,0,1,0,11,0C89,76.9,79,77.5,78.6,84.4Z"/>
+              <path id="other" class="step_2" d="M104.9,96.3c.2,7.1,10.4,7.4,10.9,0s-10.5-7-10.9,0"/>
+              <path id="other" class="step_3" d="M78.4,37.5c.5.6,2.5,1.3-2.2,1.9S60.5,40.5,60.3,41a14.9,14.9,0,0,1-3.2,6.7c-.3.4,9.9,6.9,9.9,7.3a1.4,1.4,0,0,1-1.6,1.1c-.4,0-10.7-5.9-11.1-5.7A16.2,16.2,0,0,1,46,53.8c-.5,0,.2,10,0,10.5a5.5,5.5,0,0,1-2.3,2.6c-.5,0-1.3-13.1-1.7-13.2a15.8,15.8,0,0,1-7.3-3c-.3-.2-8.4,10.9-8.8,11a2.8,2.8,0,0,1-2.8-.5c-.2-.3,8.5-13.4,8.3-13.7A15.7,15.7,0,0,1,28.3,41c-.1-.6-14.3-1.3-14.3-1.9a4.6,4.6,0,0,1,.8-2.2c.4-.5,13.2-.6,13.2-1.2a17.2,17.2,0,0,1,2.5-7.1c.5-.7-10.1-10.8-9.5-11.5s.7-.9,1.4-1,12.3,8.1,12.7,7.8a14.8,14.8,0,0,1,5.3-2.3c.6-.2-1.8-13.7-1.8-14.3s.5-2.5,1.2-2.5,6.2,16.3,7,16.5a15.8,15.8,0,0,1,7.3,3c.4.3,13.2-12.8,13.6-12.5a3.3,3.3,0,0,1,.5,2.6c-.1.7-10.6,13.4-10.2,14A15.1,15.1,0,0,1,60.5,35C60.7,35.8,77.9,36.8,78.4,37.5Z"/>
+            </g>
+            <g id="Path4">
+              <path id="other" class="step_1" d="M121.7,114.5c.2,7.2,10.4,7.5,10.9,0A5.5,5.5,0,0,0,121.7,114.5Z"/>
+              <path id="other" class="step_2" d="M143.4,50.3a5.5,5.5,0,1,0,10.9,0c-.5-7.5-10.5-6.9-10.9,0"/>
+              <path id="other" class="step_3" d="M139.9,98.7h-1.2a8,8,0,0,0-14.8,4.1,8,8,0,0,0,8,8H133a8.2,8.2,0,0,0,6.9,3.9,8,8,0,0,0,0-16Z"/>
+            </g>
+            <g id="Path5">
+              <path id="other" class="step_1" d="M165,147c.2,7.1,10.4,7.4,10.9,0S165.4,140,165,147Z"/>
+              <path id="other" class="step_2"  d="M168,218.3c.2,7.1,10.5,7.4,11,0s-10.6-6.9-11,0"/>
+              <path id="other" class="step_3" d="M139.9,110.5a8.1,8.1,0,0,0-6.9-3.8,7.9,7.9,0,0,0-7.9,8,7.9,7.9,0,0,0,7.9,7.9h1.2a8,8,0,0,0,6.8-7.9A8.5,8.5,0,0,0,139.9,110.5Z"/>
             </g>
           </svg>
         </div>
@@ -147,6 +164,7 @@
 
 <script>
     import * as d3Base from "d3";
+    import { interpolatePath } from 'd3-interpolate-path';
     import * as scrollama from 'scrollama';
     import * as flubber from "flubber";
 
@@ -178,8 +196,11 @@
             seg_id_nat: null,
             year: null,
             month: null,
-            pathStrings: null,
-            
+            path1_strings: null,
+            path2_strings: null,
+            path3_strings: null,
+            path4_strings: null,
+            path5_strings: null,
           }
         },
          watch: {
@@ -203,11 +224,16 @@
           this.resize();
           window.addEventListener("resize", this.resize);
 
-          this.d3 = Object.assign(d3Base); // this loads d3 plugins with webpack
+          this.d3 = Object.assign(d3Base, { interpolatePath }); // this loads d3 plugins with webpack
+
           this.paddedRadius = 7;
           
           // define flubber variables - set each d attribute of each path as an element in an array of path strings
-          this.pathStrings = Array.from(document.querySelectorAll("#transform-svg-test path")).map(d => d.getAttribute("d"));
+          this.path1_strings = Array.from(document.querySelectorAll("#Path1 path")).map(d => d.getAttribute("d"));
+          this.path2_strings = Array.from(document.querySelectorAll("#Path2 path")).map(d => d.getAttribute("d"));
+          this.path3_strings = Array.from(document.querySelectorAll("#Path3 path")).map(d => d.getAttribute("d"));
+          this.path4_strings = Array.from(document.querySelectorAll("#Path4 path")).map(d => d.getAttribute("d"));
+          this.path5_strings = Array.from(document.querySelectorAll("#Path5 path")).map(d => d.getAttribute("d"));
 
           this.getData(); //read in data and then draw chart
 
@@ -252,31 +278,115 @@
 
             // display only the first path element
             self.d3.select("#transform-svg-test")
-                .selectAll("path")
-                .filter(function(d, i) {
-                    return i; })
-                .remove();
+                .selectAll(".step_2")
+                //.filter(function(d, i) {
+                //    return i; })
+                  .remove();
+            self.d3.select("#transform-svg-test")
+                .selectAll(".step_3")
+                  .remove();
           },
           // animate flubber svg
           animateFlubber() {
             const self = this;
 
+            let animationLength = 2400;
+
+            // PATH 1 //
             // remove the first pathstring from the array and set it as the starting path
-            let start = self.pathStrings.shift(),
+            let path1_start = self.path1_strings.shift(),
                 // set the first element of the modified array as the ending point
-                end = self.pathStrings[0];
+                path1_end = self.path1_strings[0];
 
             // place the path string you removed at the end of the array                
-            self.pathStrings.push(start);
+            self.path1_strings.push(path1_start);
 
             // transition between the pre-defined starting path and ending path
-            self.d3.select("#transform-svg-test path")
+            self.d3.select("#Path1 path")
               .style("display", "block")
-              .datum({ start, end })
+              .datum({ path1_start, path1_end })
               .transition()
-              .duration(1200)
+              .duration(animationLength)
               .attrTween("d", function(d){
-                  return flubber.interpolate(d.start, d.end, { maxSegmentLength: 0.1 })
+                return flubber.interpolate(d.path1_start, d.path1_end, { maxSegmentLength: 0.5 })
+                  //return self.d3.interpolatePath(d.path1_start, d.path1_end)
+              })
+
+            // PATH 2 //
+            // remove the first pathstring from the array and set it as the starting path
+            let path2_start = self.path2_strings.shift(),
+                // set the first element of the modified array as the ending point
+                path2_end = self.path2_strings[0];
+
+            // place the path string you removed at the end of the array                
+            self.path2_strings.push(path2_start);
+
+            // transition between the pre-defined starting path and ending path
+            self.d3.select("#Path2 path")
+              .style("display", "block")
+              .datum({ path2_start, path2_end })
+              .transition()
+              .duration(animationLength)
+              .attrTween("d", function(d){
+                  return flubber.interpolate(d.path2_start, d.path2_end, { maxSegmentLength: 0.5 })
+                  //return self.d3.interpolatePath(d.path2_start, d.path2_end)
+              })
+
+            // PATH 3 //
+            // remove the first pathstring from the array and set it as the starting path
+            let path3_start = self.path3_strings.shift(),
+                // set the first element of the modified array as the ending point
+                path3_end = self.path3_strings[0];
+
+            // place the path string you removed at the end of the array                
+            self.path3_strings.push(path3_start);
+
+            // transition between the pre-defined starting path and ending path
+            self.d3.select("#Path3 path")
+              .style("display", "block")
+              .datum({ path3_start, path3_end })
+              .transition()
+              .duration(animationLength)
+              .attrTween("d", function(d){
+                  return flubber.interpolate(d.path3_start, d.path3_end, { maxSegmentLength: 0.1 })
+              })
+
+            // PATH 4 //
+            // remove the first pathstring from the array and set it as the starting path
+            let path4_start = self.path4_strings.shift(),
+                // set the first element of the modified array as the ending point
+                path4_end = self.path4_strings[0];
+
+            // place the path string you removed at the end of the array                
+            self.path4_strings.push(path4_start);
+
+            // transition between the pre-defined starting path and ending path
+            self.d3.select("#Path4 path")
+              .style("display", "block")
+              .datum({ path4_start, path4_end })
+              .transition()
+              .duration(animationLength)
+              .attrTween("d", function(d){
+                  return flubber.interpolate(d.path4_start, d.path4_end, { maxSegmentLength: 0.1 })
+              })
+
+            // PATH 5 //
+            // remove the first pathstring from the array and set it as the starting path
+            let path5_start = self.path5_strings.shift(),
+                // set the first element of the modified array as the ending point
+                path5_end = self.path5_strings[0];
+
+            // place the path string you removed at the end of the array                
+            self.path5_strings.push(path5_start);
+
+            // transition between the pre-defined starting path and ending path
+            self.d3.select("#Path5 path")
+              .style("display", "block")
+              .datum({ path5_start, path5_end })
+              .transition()
+              .duration(animationLength)
+              .attrTween("d", function(d){
+                  return flubber.interpolate(d.path5_start, d.path5_end, { maxSegmentLength: 0.1 })
               })
           },
           // draw beeswarm/scatterplot
@@ -602,12 +712,20 @@ article {
 
 }
 #flubber-test {
-  stroke: #ffffff;
-  stroke-width: 0.5px;
   position: absolute;
   width: 90%;
   height: 40%;
   left: 5%;
   top: 0%;
+}
+#river{
+  stroke: #6399ba;
+  fill: #6399ba;
+  stroke-width: 2px;
+}
+#other{
+  fill: #EDA550;
+  stroke: #EDA550;
+  stroke-width: 2px;
 }
 </style>
