@@ -18,17 +18,11 @@
               <path id="river" class="step_1" d="M4.4,166.9.5,166c.8-3,18.3-72.2,59.7-83.5,20.4-5.6,43,4.1,67,28.7l-2.9,2.8c-22.9-23.5-44.1-32.8-63-27.7C22.1,97,4.6,166.2,4.4,166.9Z"/>
               <path id="river" class="step_2" d="M145.4,126.3c-9-18.1-21.7-20.5-35.2-23-9.1-1.7-15.9-3.1-23.8-9.9-6.1-5.3-7.9-15.4-9.5-27.2-1.4-10.1-2.2-19.7-7.4-35.4l6.5-6c5.3,16.1,7.1,28.8,8.5,39.1S87,82.6,92,86.9c7.1,6.1,15.6,7.7,24.5,9.4,13.9,2.6,28.2,5.3,38.1,25.1Z"/>
               <path id="river" class="step_3" d="M46,59.8A13.2,13.2,0,0,1,33,73.2,13.3,13.3,0,0,1,19.9,59.8c0-7.4,10.7-15.9,13.1-30.1C35.3,43.6,46,52.4,46,59.8Z"/>
-              <!-- path id="river" class="step_1" d="M2.5,166.5s35.4-144,123.2-53.9"/ -->
-              <!-- path id="river" class="step_2" d="M71,24.6c11.4,34.5,6.3,54.1,16.6,63,18.9,16.2,46.3,2.3,62.1,33.9"/ -->
-              <!-- path id="river" class="step_3" d="M168,11C78.3,76.5,129.4,106.6,19.6,218.3"/ -->
             </g>
             <g id="Path2">
               <path id="river" class="step_1" d="M190.1,153.1c-19.1,0-41.2-13.2-65.8-39.2l2.9-2.7c26.6,28.1,49.8,40.7,69.1,37.3,24.5-4.3,37-33.1,43.8-48.6a74.9,74.9,0,0,1,3.6-7.7l3.4,2c-.8,1.5-2,4.1-3.4,7.3-7,16.2-20.1,46.3-46.7,51A40.2,40.2,0,0,1,190.1,153.1Z"/>
               <path id="river" class="step_2" d="M182.9,242.6l-22.4-.3c.2-2.5,4.3-52.3-16.9-72.3-12.8-12-9.3-54.9-5.5-67,5-15.7,19.9-15.1,18-27.4-1.4-9.2-25.2-28.1-21.8-47.1C136.1,18,139,12.1,144.4,5.7l18.2,4.1c-5.5,6.4-8,11.6-8,20.6,0,16.1,12.4,23.1,21.1,38.9,3.3,6,2.4,16.3-12.1,32.1-8.7,9.4-12.7,44.8.7,57C187,178.9,183.2,240.3,182.9,242.6Z"/>
               <path id="river" class="step_3" d="M18.1,222.9l-7.3-51c93.1-8.5,91.3,16,153.3,6.4,22.8-5.5-2.2-44.2-3.1-64.6-2.1-47.9,19.8-75.7,72.4-85.5V67.3c-32.6-1.3-39.1,35.6-23.2,69.8,15.2,32.5,19.9,63.3,2.8,84.3S87.1,208.7,18.1,222.9Z"/>
-              <!-- path id="river" class="step_1" d="M125.7,112.6c85.8,90.7,111.6-5.5,119.7-19.4"/ -->
-              <!-- path id="river" class="step_2" d="M171.5,7.5c-60.6,25.4-3.2,49.8-10.1,77.2-15.4,61.9-31.3,50.8,3,87.1,14.6,15.5,7.7,53.2,6.1,70.7"/ -->
-              <!-- path id="river" class="step_3" d="M222.3,17.8c-119.1,53-60.6,111.8-156.9,221.1"/ -->
             </g>
             <g id="Path3">
               <path id="other" class="step_1" d="M78.6,84.4a5.5,5.5,0,1,0,11,0C89,76.9,79,77.5,78.6,84.4Z"/>
@@ -289,6 +283,21 @@
           // animate flubber svg
           animateFlubber() {
             const self = this;
+
+            // Current set up uses and array of d elements for each path that we are animating 
+            // with flubber. Note that even things that appear to be circles or lines are closed paths 
+            // in the flubber svg, above, b/c that's what flubber does best. 
+            //
+            // This array approach is nice, b/c you can sync up the paths w/o using a bunch of
+            // classes, but it does feel a bit messy when we're animating 5 paths. It will get even
+            // messier if we're trying to customize styling for different steps, so we may want to 
+            // reconsider how we're setting up the paths and how we call them and transition them
+            //
+            // The { maxSegmentLength: X } parameter controls the smoothness of the animation 
+            // - currently using default values from Aaron's example. From the documentation: 
+            // // // "maxSegmentLength: the lower this number is, the smoother the resulting animation 
+            // // // will be, at the expense of performance. Represents a number in pixels (if no 
+            // // // transforms are involved). Set it to false or Infinity for no smoothing. (default: 10)"
 
             let animationLength = 2400;
 
