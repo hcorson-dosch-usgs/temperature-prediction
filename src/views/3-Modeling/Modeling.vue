@@ -709,7 +709,7 @@
 
             // scroll options
             scroller: null,
-            step: 0, //starts at 0 but this is also causing elements to refresh at step 0, which is a no-no
+            step: null, //starts at 0 but this is also causing elements to refresh at step 0, which is a no-no
             progress: 0,
 
             // force
@@ -807,25 +807,25 @@
           setFlubber() {
             const self = this;
 
+            let refresh_id = sessionStorage.getItem('refresh_flubber_id');
+
             // determine initial model id and initial annotation id
+            // if refresh_id = null (b/c this is inital load if page), start w/ first of flubber_id_order elements
             // NOTE currently assumes that we are beginning the visuals at step 0
-            let initial_model_id = self.flubber_id_order[self.step]
+            let initial_model_id = (refresh_id == null) ? self.flubber_id_order[0] : refresh_id // self.current_flubber_id //self.flubber_id_order[self.step]
             let initial_annotation_id = initial_model_id + "_annotations"
 
             // Hide all flubber elements (visuals and annotations)
             self.d3.selectAll(".flubber")
               .attr("opacity", 0)
-              // .style("visibility", "hidden");
 
             // display visual associated with initial model id
             self.d3.selectAll("#" + initial_model_id)
               .attr("opacity", 1)
-              // .style("visibility", "visible");
 
             // display visual associated with initial model id
             self.d3.selectAll("#" + initial_annotation_id)
               .attr("opacity", 1)
-              // .style("visibility", "visible");
 
           },
           // animate flubber svg
@@ -841,9 +841,6 @@
             // if were other ids, would have to add check that id is in flubber_id_order array
             if (step_id) {
               let animationLength = 2400;
-
-              console.log('current flubber id')
-              console.log(self.current_flubber_id)
 
               // identify which flubber id to transition to
               // get id of current step w/i flubber_id_order array
@@ -874,7 +871,7 @@
               for (path_num in self.flubber_dict) {
                 // define path end using the CURRENT STEP ID
                 let path_end = self.flubber_dict[path_num][step_id]
-                // define path end using the PREVIOUS STEP ID (as defined above)
+                // define path start using the PREVIOUS STEP ID (as defined above)
                 let path_start = self.flubber_dict[path_num][previous_id]
 
                 // transition between the two
@@ -890,10 +887,9 @@
               }
 
               // select associated annotations
+              // define previous and next annotation ids
               let previous_annotation_id = previous_id + "_annotations"
-              console.log(previous_annotation_id)
               let next_annotation_id = step_id + "_annotations"
-              console.log(next_annotation_id)
 
               // set length of annotation transition
               let transition_duration = animationLength/2
@@ -903,17 +899,22 @@
                 self.d3.selectAll("#" + previous_annotation_id)
                   .transition()
                   .duration(animationLength)
-                  .style("opacity", "0");
+                  .attr("opacity", "0");
 
                 // display visual associated with initial model id
                 self.d3.selectAll("#" + next_annotation_id)
                   .transition()
                   .duration(animationLength)
-                  .style("opacity", "1");
+                  .attr("opacity", "1");
               }
 
               // store current id
               self.current_flubber_id = step_id
+
+              // store current id as page refresh value
+              // self.refresh_flubber_id = self.current_flubber_id
+              sessionStorage.setItem('refresh_flubber_id' , self.current_flubber_id);
+              let refresh_id = sessionStorage.getItem('refresh_flubber_id');
 
             } else {
               console.log("step has no id")
