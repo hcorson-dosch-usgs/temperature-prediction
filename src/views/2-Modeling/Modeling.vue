@@ -75,6 +75,20 @@
           id="scrollama-container-desktop"
         >
           <!-- create scrolling/sticky headers for each model section -->
+          <!--div 
+          v-for="(models, model_group) in text" 
+            :key="model_group" 
+            :class="model_group" 
+            class="step-container model-text-content"
+          >
+            <div
+              class="scroll-sticky"
+            >
+              <h3 class="viz-title-scrolly">
+                header
+              </h3>
+            </div>
+          </div -->
           <div 
             v-for="(models, model_group) in text" 
             :key="model_group" 
@@ -85,7 +99,7 @@
               class="scroll-sticky"
             >
               <h3 class="viz-title-scrolly">
-                {{ model_group }}
+                headers
               </h3>
             </div>
             <!-- populate nested steps using text about each model -->
@@ -140,43 +154,44 @@
         </div>
       </article>
     </div>
-    
-    <figure
-      class="sticky"
-    >
-      <div
-        id="outro-container"
-        class="text-outro"
+    <div>
+      <figure
+        class="sticky"
       >
-        <div class="step-container model-text-content">
-          <div
-            class="scroll-sticky"
-          >
-            <h3 class="viz-title-scrolly">
-              What's next?
-            </h3>
+        <div
+          id="outro-container"
+          class="text-outro"
+        >
+          <div class="step-container model-text-content">
             <div
-              class="text-content"
+              class="scroll-sticky"
             >
-              <p>
-                Knowledge-guided machine learning models shine in new scenarios. When trained on only cold-season data, the model is able to predict warm-season dynamics. This is one piece of evidence that these models can make accurate predictions into the future where conditions might be different than we've ever seen before.  <br> <br>
-                These models could be used to answer pressing water questions: How will climate change impact available fish habitat? Will increases in water use change stream temperature dynamics? What will happen to stream temperature if we add or remove a dam?   <br> <br>
-                What’s next for knowledge-guided water temperature modeling at the U.S. Geological Survey? We’re actively working to incorporate real-time data to improve temperature forecasts, modify the machine learning architecture to accommodate reservoirs, and expand to new basins across the U.S.   <br> <br>
-                To learn more about knowledge-guided deep learning, see recent publications by the USGS and collaborators in <a
-                  href="https://agupubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2019WR024922"
-                  target="”_blank”"
-                  class="pub_link"
-                >lakes</a> and <a
-                  href="https://arxiv.org/pdf/2009.12575.pdf"
-                  target="”_blank”"
-                  class="pub_link"
-                >streams</a>.
-              </p>
+              <h3 class="viz-title-scrolly">
+                What's next?
+              </h3>
+              <div
+                class="text-content"
+              >
+                <p>
+                  Knowledge-guided machine learning models shine in new scenarios. When trained on only cold-season data, the model is able to predict warm-season dynamics. This is one piece of evidence that these models can make accurate predictions into the future where conditions might be different than we've ever seen before.  <br> <br>
+                  These models could be used to answer pressing water questions: How will climate change impact available fish habitat? Will increases in water use change stream temperature dynamics? What will happen to stream temperature if we add or remove a dam?   <br> <br>
+                  What’s next for knowledge-guided water temperature modeling at the U.S. Geological Survey? We’re actively working to incorporate real-time data to improve temperature forecasts, modify the machine learning architecture to accommodate reservoirs, and expand to new basins across the U.S.   <br> <br>
+                  To learn more about knowledge-guided deep learning, see recent publications by the USGS and collaborators in <a
+                    href="https://agupubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2019WR024922"
+                    target="”_blank”"
+                    class="pub_link"
+                  >lakes</a> and <a
+                    href="https://arxiv.org/pdf/2009.12575.pdf"
+                    target="”_blank”"
+                    class="pub_link"
+                  >streams</a>.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </figure>
+      </figure>
+    </div>
   </div>
 </template>
 
@@ -251,6 +266,9 @@
             // scroll options
             scroller: null,
             step: 0, // causing elements to refresh at step 0
+
+            // headers
+            header_dict: {},
 
             // flubber
             flubber_dict: {},
@@ -2002,7 +2020,7 @@ figure.sticky.intro {
 }
 
 figure.sticky.charts {
-  position: realtive;
+  position: sticky;
   display: grid;
   padding-top: 1.1em;
   grid-template-rows: 90%;

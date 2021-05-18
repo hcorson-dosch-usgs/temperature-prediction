@@ -66,8 +66,7 @@
                     'method': "Eventually, the model lands on a set of weights that produces the most accurate predictions based on all the data across all the locations. At this point the model is considered “trained” and can be used to make predictions using new input data. But the model will never be perfect, even when fully trained, and will perform better for some places and times than others.",
                     'flubber_id': 'ANN13',
                     'bees_id': 'step_error_exp'
-                }],
-            "Testing an artificial neural network (ANN)": [
+                },
                 {
                     'method': "We can test a trained model by asking it to predict stream temperature using input data it has never seen. Here we show daily temperature predictions for a stream reach over one month.",
                     'flubber_id': '',
@@ -128,8 +127,6 @@
                     'flubber_id': 'ANN13',
                     'bees_id': 'step_ann_exp'
                 },
-            ],
-            "Recurrent neural network (RNN)": [
                 {
                     'method': "One of the simplest things we know is how time relates to stream temperature. Put simply, the water temperature tomorrow is likely to be similar to the water temperature today. For machine learning modeling, incorporating this knowledge is as simple as using models that have memory, allowing information from one day to be passed on to the next. The model with memory that we use is called a recurrent neural network (RNN).",
                     'flubber_id': 'RNN',
@@ -139,8 +136,7 @@
                     'method': "In the DRB, giving the model a memory improves model accuracy in some reaches but worsens model performance in others.",
                     'flubber_id': 'RNN',
                     'bees_id': 'step_rnn'
-                }],
-            "Graph convolutional network": [
+                },
                 {
                     'method': "Another piece of knowledge we can use to improve the model is that all streams are part of a network. You don’t need to be a hydrologist to know that water flows downstream, and that the water temperature in downstream segments is likely to be similar to that in upstream segments. We can use these spatial relationships to better leverage information across the stream network.",
                     'flubber_id': 'RGCN',
@@ -155,8 +151,7 @@
                     'method': "In the DRB, adding information about the spatial configuration of the river network improves predictions.",
                     'flubber_id': 'RGCN_2',
                     'bees_id': 'step_rgcn'
-                }],
-            "Knowledge-guided deep learning": [
+                },
                 {
                     'method': "Beyond time and space, we know quite a bit about the science behind how and why streams gain or lose heat – we shouldn’t ignore this wealth of knowledge simply because we’re using a machine learning approach that is driven by data. These natural processes are intuitive – warm, sunny days should warm streams, and cold, cloudy days should cool streams.",
                     'flubber_id': 'RGCN_ptrn',
